@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 
 import getDbConnection from './config/index.js';  // Import the default function
 import setupController from './controllers/setupController.js';
+import apiController from './controllers/apiController.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -19,6 +20,7 @@ app.set('view engine', 'ejs');
 
 mongoose.connect(getDbConnection());  // Call the function here
 setupController(app);
+apiController(app);
 
 app.listen(PORT, () => {
     console.log(`Server running on Port: ${PORT}`);
